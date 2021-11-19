@@ -35,7 +35,7 @@ class AddFragment : Fragment() {
         val view = binding.root
 
 
-        //mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
         binding.addBtn.setOnClickListener(View.OnClickListener {
             insertDataToDatabase()
