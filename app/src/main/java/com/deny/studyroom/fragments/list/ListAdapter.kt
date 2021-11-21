@@ -3,6 +3,7 @@ package com.deny.studyroom.fragments.list
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.deny.studyroom.R
 import com.deny.studyroom.data.User
@@ -27,6 +28,11 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
         holder.itemView.firstNameCustom.text = currentItem.firstName
         holder.itemView.lastNameCustom.text = currentItem.lastName
         holder.itemView.idadeCustom.text = currentItem.age.toString()
+
+        holder.itemView.itemRow.setOnClickListener(View.OnClickListener {
+            val action = ListFragmentDirections.actionListFragmentToUpdateFragment(currentItem)
+            holder.itemView.findNavController().navigate(action)
+        })
     }
 
     override fun getItemCount(): Int {
